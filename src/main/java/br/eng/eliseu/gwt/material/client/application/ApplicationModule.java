@@ -23,12 +23,14 @@ import com.gwtplatform.mvp.client.gin.AbstractPresenterModule;
 
 import br.eng.eliseu.gwt.material.client.application.home.HomeModule;
 import br.eng.eliseu.gwt.material.client.application.rachaSocial.RachaSocialModule;
+import br.eng.eliseu.gwt.material.client.application.teste.TesteModule;
 
 public class ApplicationModule extends AbstractPresenterModule {
 
     @Override
     protected void configure() {
-        install(new HomeModule());
+        install(new TesteModule());
+		install(new HomeModule());
         install(new RachaSocialModule());
                     
         bindPresenter(ApplicationPresenter.class, ApplicationPresenter.MyView.class, ApplicationView.class, ApplicationPresenter.MyProxy.class);

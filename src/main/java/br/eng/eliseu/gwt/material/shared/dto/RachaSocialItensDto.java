@@ -3,31 +3,22 @@ package br.eng.eliseu.gwt.material.shared.dto;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-
-import br.eng.eliseu.gwt.divideconta.infra.Utils;
+import br.eng.eliseu.gwt.material.shared.utils.UtilsClient;
 
 
-@Entity
-@Table(name="DIC_RACHACOMPRASITENS")
-public class RachaComprasItens implements Serializable{
+//@Entity
+//@Table(name="DIC_RACHACOMPRASITENS")
+public class RachaSocialItensDto implements Serializable{
 	
 	private static final long serialVersionUID = -6862859190919938476L;
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+//	@Id
+//	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer id;
 
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name="id_compra")
-	private RachaCompras compra;
+//	@ManyToOne(fetch = FetchType.EAGER)
+//	@JoinColumn(name="id_compra")
+//	private RachaCompras compra;
 
 	private String nome;
 	private String email;
@@ -103,7 +94,7 @@ public class RachaComprasItens implements Serializable{
 		return valorGasto;
 	}
 	public void setValorGasto(BigDecimal valorGasto) {
-		this.valorGasto = Utils.truncaBigDecimal(valorGasto, 2);
+		this.valorGasto = UtilsClient.truncaBigDecimal(valorGasto, 2);
 	}
 	public boolean isPaga() {
 		return paga;
@@ -166,7 +157,7 @@ public class RachaComprasItens implements Serializable{
 		return haReceber;
 	}
 	public void setHaReceber(BigDecimal haReceber) {
-		this.haReceber = Utils.truncaBigDecimal(haReceber, 2);
+		this.haReceber = UtilsClient.truncaBigDecimal(haReceber, 2);
 	}
 	public BigDecimal getHaPagar() {
 		if (haPagar==null){
@@ -175,18 +166,12 @@ public class RachaComprasItens implements Serializable{
 		return haPagar;
 	}
 	public void setHaPagar(BigDecimal haPagar) {
-		this.haPagar = Utils.truncaBigDecimal(haPagar, 2);
+		this.haPagar = UtilsClient.truncaBigDecimal(haPagar, 2);
 	}
 	public Integer getId() {
 		return id;
 	}
 	public void setId(Integer id) {
 		this.id = id;
-	}
-	public RachaCompras getCompra() {
-		return compra;
-	}
-	public void setCompra(RachaCompras compra) {
-		this.compra = compra;
 	}
 }

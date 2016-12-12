@@ -18,15 +18,15 @@
 			<ma:window.MaterialWindow ui:field="winRachaSocial" width="90%" title="Lançamento">
 				<m:MaterialPanel padding="32" textAlign="LEFT" >
 				
-					<m:MaterialTextBox ui:field="dfNome" label="Nome" />
-					<m:MaterialTextBox ui:field="dfEmail" label="e-Mail" />
+					<m:MaterialTextBox ui:field="nomeTBox" label="Nome" />
+					<m:MaterialTextBox ui:field="emailTBox" label="e-Mail" />
 					
-					<m:MaterialCheckBox ui:field="cbGastou" text="Este Gastou com alguma coisa"/>
-					<m:MaterialDoubleBox ui:field="dfValorGastou" label="Valor que gastou" />
+					<m:MaterialCheckBox ui:field="gastouCBox" text="Este Gastou com alguma coisa"/>
+					<m:MaterialDoubleBox ui:field="valorGastouTBox" label="Valor que gastou" />
 					
-					<m:MaterialCheckBox ui:field="cbPagar" text="Este vai pagar"/>
-					<m:MaterialIntegerBox ui:field="dfAdultos" label="Vai pagar para quantos Adultos? (Inteira = 100%)" />
-					<m:MaterialIntegerBox ui:field="dfCriancas" label="Vai pagar para quantas Crianças? (Meia = 50%)" />
+					<m:MaterialCheckBox ui:field="pagarCBox" text="Este vai pagar"/>
+					<m:MaterialDoubleBox ui:field="adultosTBox" label="Vai pagar para quantos Adultos? (Inteira = 100%)" />
+					<m:MaterialDoubleBox ui:field="criancasTBox" label="Vai pagar para quantas Crianças? (Meia = 50%)" />
 					
 				</m:MaterialPanel>
 			</ma:window.MaterialWindow>

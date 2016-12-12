@@ -1,4 +1,4 @@
-package br.eng.eliseu.gwt.material.client.application.rachaSocial;
+package br.eng.eliseu.gwt.material.client.application.teste;
 
 import com.google.inject.Inject;
 import com.google.web.bindery.event.shared.EventBus;
@@ -11,39 +11,33 @@ import com.gwtplatform.mvp.client.proxy.ProxyPlace;
 
 import br.eng.eliseu.gwt.material.client.application.ApplicationPresenter;
 import br.eng.eliseu.gwt.material.client.place.NameTokens;
-import br.eng.eliseu.gwt.material.shared.dto.RachaSocialItensDto;
-
-public class RachaSocialPresenter extends Presenter<RachaSocialPresenter.MyView, RachaSocialPresenter.MyProxy> implements RachaSocialUiHandlers {
-    
-    interface MyView extends View, HasUiHandlers<RachaSocialUiHandlers>  {
-    	public RachaSocialItensDto pegaDadosTela();
+public class TestePresenter extends Presenter<TestePresenter.MyView, TestePresenter.MyProxy> implements TesteUiHandlers {
+	
+    interface MyView extends View , HasUiHandlers<TesteUiHandlers> {
     }
-    
-    private RachaSocialItensDto item = new RachaSocialItensDto();
-    
+
+    @NameToken(NameTokens.teste)
     @ProxyStandard
-    @NameToken(NameTokens.RACHA_SOCIAL)
-    interface MyProxy extends ProxyPlace<RachaSocialPresenter> {
+    interface MyProxy extends ProxyPlace<TestePresenter> {
     }
 
     @Inject
-    RachaSocialPresenter(EventBus eventBus, MyView view, MyProxy proxy) {
+    TestePresenter(EventBus eventBus, MyView view, MyProxy proxy) {
         super(eventBus, view, proxy, ApplicationPresenter.SLOT_MAIN);
         
         getView().setUiHandlers(this);
-        
     }
-    
-    
 
+    
+    
 	@Override
-	public void onGastouCBoxClick() {
+	public void onSaveButtonClick() {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void onPagarCBoxClick() {
+	public void onCancelButtonClick() {
 		// TODO Auto-generated method stub
 		
 	}
