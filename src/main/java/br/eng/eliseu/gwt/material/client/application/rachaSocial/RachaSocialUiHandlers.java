@@ -4,8 +4,7 @@ import com.gwtplatform.mvp.client.UiHandlers;
 
 public interface RachaSocialUiHandlers extends UiHandlers {
 
-	void onGastouCBoxClick();
+	void onGravarBtnClick();
 
-	void onPagarCBoxClick();
 
 }

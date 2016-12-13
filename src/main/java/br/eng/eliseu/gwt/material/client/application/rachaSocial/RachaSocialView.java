@@ -31,6 +31,7 @@ class RachaSocialView extends ViewWithUiHandlers<RachaSocialUiHandlers> implemen
 	 @UiField MaterialCheckBox pagarCBox;
 	 @UiField MaterialDoubleBox adultosTBox;
 	 @UiField MaterialDoubleBox criancasTBox;
+	 
 
 	 @Inject
 	 RachaSocialView(Binder uiBinder) {
@@ -56,15 +57,42 @@ class RachaSocialView extends ViewWithUiHandlers<RachaSocialUiHandlers> implemen
 	 }
 
 	 @UiHandler("btnOpenModal")
-	 void onOpenModal(ClickEvent e) {
-		  modal.open();
+	 void onOpenModalClick(ClickEvent e) {
+		 modal.open();
 	 }
-
-	 @UiHandler("btnCloseModal")
-	 void onCloseModal(ClickEvent e) {
-		  modal.close();;
+	 
+	 @UiHandler("fechaBtn")
+	 void onCloseModalClick(ClickEvent e) {
+		 modal.close();;
 	 }
-
+	 
+	 @UiHandler("gravarBtn")
+	 void onGravarBtnClick(ClickEvent e) {
+		  if (getUiHandlers() != null) {
+				getUiHandlers().onGravarBtnClick();
+		  }
+	 }
+	 
+	 
+	 @Override
+	 public RachaSocialItensDto pegaDadosTela() {
+		 RachaSocialItensDto item = new RachaSocialItensDto();
+		 
+		 item.setaValores(
+				 nomeTBox.getValue(), 
+				 emailTBox.getValue(), 
+				 gastouCBox.getValue(), 
+				 valorGastouTBox.getValue(), 
+				 pagarCBox.getValue(),
+				 adultosTBox.getValue(), 
+				 new Double("100"), 
+				 criancasTBox.getValue(), 
+				 new Double("50"));
+		 
+		 return item;
+		 
+	 }
+	 
 	 private void limpaFormulario() {
 
 		  nomeTBox.setText("");
@@ -82,42 +110,7 @@ class RachaSocialView extends ViewWithUiHandlers<RachaSocialUiHandlers> implemen
 
 	 }
 
-	 @Override
-	 public RachaSocialItensDto pegaDadosTela() {
-		  RachaSocialItensDto item = new RachaSocialItensDto();
 
-		  item.setaValores(
-					 nomeTBox.getValue(), 
-					 emailTBox.getValue(), 
-					 gastouCBox.getValue(), 
-					 valorGastouTBox.getValue(), 
-					 pagarCBox.getValue(),
-					 adultosTBox.getValue(), 
-					 new Double("100"), 
-					 criancasTBox.getValue(), 
-					 new Double("50"));
 
-		  return item;
-
-	 }
-
-//	 public HasClickHandlers getClickGastouCBox() {
-//		  return gastouCBox;
-//	 }
-
-	 // Handlers
-	 @UiHandler("gastouCBox")
-	 void onGastouCBoxClick(ClickEvent event) {
-		  if (getUiHandlers() != null) {
-				getUiHandlers().onGastouCBoxClick();
-		  }
-	 }
-
-	 @UiHandler("pagarCBox")
-	 void onPagarCBoxClick(ClickEvent event) {
-		  if (getUiHandlers() != null) {
-				getUiHandlers().onPagarCBoxClick();
-		  }
-	 }
-
+	 
 }

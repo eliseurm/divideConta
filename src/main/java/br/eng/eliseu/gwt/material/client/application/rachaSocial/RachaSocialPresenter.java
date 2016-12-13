@@ -33,20 +33,14 @@ public class RachaSocialPresenter extends Presenter<RachaSocialPresenter.MyView,
         getView().setUiHandlers(this);
         
     }
-    
-    
 
+    
 	@Override
-	public void onGastouCBoxClick() {
-		// TODO Auto-generated method stub
+	public void onGravarBtnClick() {
+		
 		
 	}
-
-	@Override
-	public void onPagarCBoxClick() {
-		// TODO Auto-generated method stub
-		
-	}
+    
     
     
 }

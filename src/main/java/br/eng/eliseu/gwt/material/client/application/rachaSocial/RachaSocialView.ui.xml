@@ -16,27 +16,26 @@
 		<m:MaterialRow>
 			<m:MaterialButton ui:field="btnOpenModal" text="Open Modal" textColor="WHITE" />
 			
-			<m:MaterialModal ui:field="modal" type="DEFAULT" dismissible="false" inDuration="5" outDuration="5">
-					<m:MaterialModalContent>
-						<m:MaterialTitle title="Informações" description="Preencha os campos do formulario e clique em Gravar" />
-					<m:MaterialPanel textAlign="LEFT" >
+			<m:MaterialModal ui:field="modal" type="DEFAULT" dismissible="false" inDuration="500" outDuration="500">
+				
+				<m:MaterialModalContent>
+					<m:MaterialTitle title="Informações" description="Preencha os campos do formulario e clique em Gravar" />
+				
+					<m:MaterialTextBox ui:field="nomeTBox" label="Nome" />
+					<m:MaterialTextBox ui:field="emailTBox" label="e-Mail" />
 					
-						<m:MaterialTextBox ui:field="nomeTBox" label="Nome" />
-						<m:MaterialTextBox ui:field="emailTBox" label="e-Mail" />
-						
-						<m:MaterialCheckBox ui:field="gastouCBox" text="Este Gastou com alguma coisa"/>
-						<m:MaterialDoubleBox ui:field="valorGastouTBox" label="Valor que gastou" />
-						
-						<m:MaterialCheckBox ui:field="pagarCBox" text="Este vai pagar"/>
-						<m:MaterialDoubleBox ui:field="adultosTBox" label="Vai pagar para quantos Adultos? (Inteira = 100%)" />
-						<m:MaterialDoubleBox ui:field="criancasTBox" label="Vai pagar para quantas Crianças? (Meia = 50%)" />
+					<m:MaterialCheckBox ui:field="gastouCBox" text="Este Gastou com alguma coisa"/>
+					<m:MaterialDoubleBox ui:field="valorGastouTBox" label="Valor que gastou" />
+					
+					<m:MaterialCheckBox ui:field="pagarCBox" text="Este vai pagar"/>
+					<m:MaterialDoubleBox ui:field="adultosTBox" label="Vai pagar para quantos Adultos? (Inteira = 100%)" />
+					<m:MaterialDoubleBox ui:field="criancasTBox" label="Vai pagar para quantas Crianças? (Meia = 50%)" />
 
-					</m:MaterialPanel>
-					</m:MaterialModalContent>
+				</m:MaterialModalContent>
 					
 				<m:MaterialModalFooter>
-					<m:MaterialButton ui:field="gravarBtn" text="Gravar" waves="LIGHT" textColor="WHITE" />
-					<m:MaterialButton ui:field="btnCloseModal" text="Close Modal" type="FLAT"/>
+					<m:MaterialButton ui:field="fechaBtn" text="Fechar" type="FLAT"  waves="LIGHT" />
+					<m:MaterialButton ui:field="gravarBtn" text="Gravar" type="FLAT" waves="LIGHT" />
 				</m:MaterialModalFooter>
 					
 					
