@@ -3,7 +3,6 @@ package br.eng.eliseu.gwt.material.client.application.rachaSocial;
 import javax.inject.Inject;
 
 import com.google.gwt.event.dom.client.ClickEvent;
-import com.google.gwt.event.dom.client.HasClickHandlers;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
@@ -11,9 +10,9 @@ import com.google.gwt.user.client.ui.Widget;
 import com.gwtplatform.mvp.client.ViewWithUiHandlers;
 
 import br.eng.eliseu.gwt.material.shared.dto.RachaSocialItensDto;
-import gwt.material.design.addins.client.window.MaterialWindow;
 import gwt.material.design.client.ui.MaterialCheckBox;
 import gwt.material.design.client.ui.MaterialDoubleBox;
+import gwt.material.design.client.ui.MaterialModal;
 import gwt.material.design.client.ui.MaterialTextBox;
 
 class RachaSocialView extends ViewWithUiHandlers<RachaSocialUiHandlers> implements RachaSocialPresenter.MyView {
@@ -21,25 +20,17 @@ class RachaSocialView extends ViewWithUiHandlers<RachaSocialUiHandlers> implemen
 	 interface Binder extends UiBinder<Widget, RachaSocialView> {
 	 }
 
-	 @UiField
-	 MaterialWindow winRachaSocial;
+	 @UiField MaterialModal modal;
 
-	 @UiField
-	 MaterialTextBox nomeTBox;
-	 @UiField
-	 MaterialTextBox emailTBox;
+	 @UiField MaterialTextBox nomeTBox;
+	 @UiField MaterialTextBox emailTBox;
 
-	 @UiField
-	 MaterialCheckBox gastouCBox;
-	 @UiField
-	 MaterialDoubleBox valorGastouTBox;
+	 @UiField MaterialCheckBox gastouCBox;
+	 @UiField MaterialDoubleBox valorGastouTBox;
 
-	 @UiField
-	 MaterialCheckBox pagarCBox;
-	 @UiField
-	 MaterialDoubleBox adultosTBox;
-	 @UiField
-	 MaterialDoubleBox criancasTBox;
+	 @UiField MaterialCheckBox pagarCBox;
+	 @UiField MaterialDoubleBox adultosTBox;
+	 @UiField MaterialDoubleBox criancasTBox;
 
 	 @Inject
 	 RachaSocialView(Binder uiBinder) {
@@ -61,12 +52,17 @@ class RachaSocialView extends ViewWithUiHandlers<RachaSocialUiHandlers> implemen
 		  // }
 		  // });
 
+		  
 	 }
 
-	 @UiHandler("btnOpenWindow")
-	 void onOpenWindow(ClickEvent e) {
-		  limpaFormulario();
-		  winRachaSocial.open();
+	 @UiHandler("btnOpenModal")
+	 void onOpenModal(ClickEvent e) {
+		  modal.open();
+	 }
+
+	 @UiHandler("btnCloseModal")
+	 void onCloseModal(ClickEvent e) {
+		  modal.close();;
 	 }
 
 	 private void limpaFormulario() {

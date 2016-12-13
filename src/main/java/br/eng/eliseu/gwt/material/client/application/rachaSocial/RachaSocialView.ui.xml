@@ -14,22 +14,34 @@
 		<m:MaterialLabel text="Ola Racha Social!!" />
 
 		<m:MaterialRow>
-			<m:MaterialButton ui:field="btnOpenWindow" text="Open Window" textColor="WHITE" />
-			<ma:window.MaterialWindow ui:field="winRachaSocial" width="90%" title="Lançamento">
-				<m:MaterialPanel padding="32" textAlign="LEFT" >
-				
-					<m:MaterialTextBox ui:field="nomeTBox" label="Nome" />
-					<m:MaterialTextBox ui:field="emailTBox" label="e-Mail" />
+			<m:MaterialButton ui:field="btnOpenModal" text="Open Modal" textColor="WHITE" />
+			
+			<m:MaterialModal ui:field="modal" type="DEFAULT" dismissible="false" inDuration="5" outDuration="5">
+					<m:MaterialModalContent>
+						<m:MaterialTitle title="Informações" description="Preencha os campos do formulario e clique em Gravar" />
+					<m:MaterialPanel textAlign="LEFT" >
 					
-					<m:MaterialCheckBox ui:field="gastouCBox" text="Este Gastou com alguma coisa"/>
-					<m:MaterialDoubleBox ui:field="valorGastouTBox" label="Valor que gastou" />
+						<m:MaterialTextBox ui:field="nomeTBox" label="Nome" />
+						<m:MaterialTextBox ui:field="emailTBox" label="e-Mail" />
+						
+						<m:MaterialCheckBox ui:field="gastouCBox" text="Este Gastou com alguma coisa"/>
+						<m:MaterialDoubleBox ui:field="valorGastouTBox" label="Valor que gastou" />
+						
+						<m:MaterialCheckBox ui:field="pagarCBox" text="Este vai pagar"/>
+						<m:MaterialDoubleBox ui:field="adultosTBox" label="Vai pagar para quantos Adultos? (Inteira = 100%)" />
+						<m:MaterialDoubleBox ui:field="criancasTBox" label="Vai pagar para quantas Crianças? (Meia = 50%)" />
+
+					</m:MaterialPanel>
+					</m:MaterialModalContent>
 					
-					<m:MaterialCheckBox ui:field="pagarCBox" text="Este vai pagar"/>
-					<m:MaterialDoubleBox ui:field="adultosTBox" label="Vai pagar para quantos Adultos? (Inteira = 100%)" />
-					<m:MaterialDoubleBox ui:field="criancasTBox" label="Vai pagar para quantas Crianças? (Meia = 50%)" />
+				<m:MaterialModalFooter>
+					<m:MaterialButton ui:field="gravarBtn" text="Gravar" waves="LIGHT" textColor="WHITE" />
+					<m:MaterialButton ui:field="btnCloseModal" text="Close Modal" type="FLAT"/>
+				</m:MaterialModalFooter>
 					
-				</m:MaterialPanel>
-			</ma:window.MaterialWindow>
+					
+			</m:MaterialModal>
+			
 		</m:MaterialRow>
  		<m:MaterialRow>
 			<m.table:MaterialDataTable ui:field="table" height="calc(100vh - 131px)" useStickyHeader="true" useCategories="true"

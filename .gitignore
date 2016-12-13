@@ -21,7 +21,7 @@ target/
 src/main/webapp/WEB-INF/deploy/
 src/main/webapp/WEB-INF/classes/
 src/main/webapp/GwtdTutorial/
-
+src/main/webapp/GwtMaterialBasic/
 
 
 #compilation logs

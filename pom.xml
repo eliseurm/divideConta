@@ -85,6 +85,42 @@
                 </configuration>
             </plugin>
 
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-clean-plugin</artifactId>
+					<version>3.0.0</version>
+					<configuration>
+						<filesets>
+							<fileset>
+								<directory>${webappDirectory}/WEB-INF/deploy</directory>
+							</fileset>
+							<fileset>
+								<directory>${webappDirectory}/WEB-INF/lib</directory>
+							</fileset>
+							<fileset>
+								<directory>${webappDirectory}/GwtMaterialBasic</directory>
+							</fileset>
+							<fileset>
+								<directory>${webappDirectory}/${project.artifactId}</directory>
+							</fileset>
+							<fileset>
+								<directory>${webappDirectory}/${project.groupId}.LoteriasWebJUnit</directory>
+							</fileset>
+							<fileset>
+								<directory>src/main/gwt-unitCache</directory>
+							</fileset>
+							<fileset>
+								<directory>target</directory>
+							</fileset>
+							<fileset>
+								<directory>war</directory>
+							</fileset>
+			
+						</filesets>
+					</configuration>
+				</plugin>
+            
+
             <!-- GWT -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
