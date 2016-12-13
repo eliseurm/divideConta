@@ -17,108 +17,111 @@ import gwt.material.design.client.ui.MaterialDoubleBox;
 import gwt.material.design.client.ui.MaterialTextBox;
 
 class RachaSocialView extends ViewWithUiHandlers<RachaSocialUiHandlers> implements RachaSocialPresenter.MyView {
-    
-    interface Binder extends UiBinder<Widget, RachaSocialView> {
-    }
 
-    @UiField MaterialWindow winRachaSocial;
+	 interface Binder extends UiBinder<Widget, RachaSocialView> {
+	 }
 
-    @UiField MaterialTextBox nomeTBox;
-    @UiField MaterialTextBox emailTBox;
+	 @UiField
+	 MaterialWindow winRachaSocial;
 
-    @UiField MaterialCheckBox gastouCBox;
-    @UiField MaterialDoubleBox valorGastouTBox;
+	 @UiField
+	 MaterialTextBox nomeTBox;
+	 @UiField
+	 MaterialTextBox emailTBox;
 
-    @UiField MaterialCheckBox   pagarCBox;
-    @UiField MaterialDoubleBox adultosTBox;
-    @UiField MaterialDoubleBox criancasTBox;
+	 @UiField
+	 MaterialCheckBox gastouCBox;
+	 @UiField
+	 MaterialDoubleBox valorGastouTBox;
 
-    
-    
-    @Inject
-    RachaSocialView(Binder uiBinder) {
-        initWidget(uiBinder.createAndBindUi(this));
-        
-//        cbGastou.set
-        
-//        winRachaSocial.addOpenHandler(new OpenHandler<Boolean>() {
-//            @Override
-//            public void onOpen(OpenEvent<Boolean> event) {
-//                MaterialToast.fireToast("Opened : " + winRachaSocial.getTitle());
-//            }
-//        });
-//
-//        winRachaSocial.addCloseHandler(new CloseHandler<Boolean>() {
-//            @Override
-//            public void onClose(CloseEvent<Boolean> event) {
-//                MaterialToast.fireToast("Closed : " + winRachaSocial.getTitle());
-//            }
-//        });
+	 @UiField
+	 MaterialCheckBox pagarCBox;
+	 @UiField
+	 MaterialDoubleBox adultosTBox;
+	 @UiField
+	 MaterialDoubleBox criancasTBox;
 
-    }
-    
-    
-    @UiHandler("btnOpenWindow")
-    void onOpenWindow(ClickEvent e) {
-		limpaFormulario();
-		winRachaSocial.open();
-    }
+	 @Inject
+	 RachaSocialView(Binder uiBinder) {
+		  initWidget(uiBinder.createAndBindUi(this));
 
-    private void limpaFormulario(){
-	
-        nomeTBox.setText("");
-        emailTBox.setText("");
-        
-        gastouCBox.setValue(false);
-        valorGastouTBox.setValue(0.0);
-        valorGastouTBox.setEnabled(false);
-        
-        pagarCBox.setValue(false);
-        adultosTBox.setValue(1.0);
-        criancasTBox.setValue(0.0);
-        adultosTBox.setEnabled(false);
-        criancasTBox.setEnabled(false);
+		  // cbGastou.set
 
-    }
+		  // winRachaSocial.addOpenHandler(new OpenHandler<Boolean>() {
+		  // @Override
+		  // public void onOpen(OpenEvent<Boolean> event) {
+		  // MaterialToast.fireToast("Opened : " + winRachaSocial.getTitle());
+		  // }
+		  // });
+		  //
+		  // winRachaSocial.addCloseHandler(new CloseHandler<Boolean>() {
+		  // @Override
+		  // public void onClose(CloseEvent<Boolean> event) {
+		  // MaterialToast.fireToast("Closed : " + winRachaSocial.getTitle());
+		  // }
+		  // });
 
+	 }
 
-	@Override
-	public RachaSocialItensDto pegaDadosTela() {
-		RachaSocialItensDto item = new RachaSocialItensDto();
-		
-		item.setaValores(
-				nomeTBox.getValue(), 
-				emailTBox.getValue(), 
-				gastouCBox.getValue(), 
-				valorGastouTBox.getValue().doubleValue(), 
-				pagarCBox.getValue(), 
-				adultosTBox.getValue(), 
-				new Double("100"), 
-				criancasTBox.getValue(), 
-				new Double("50") );
-		
-		return item;
-		
-	}
-    
-	public HasClickHandlers getClickGastouCBox() {
-		return gastouCBox;
-	}
+	 @UiHandler("btnOpenWindow")
+	 void onOpenWindow(ClickEvent e) {
+		  limpaFormulario();
+		  winRachaSocial.open();
+	 }
 
-	 // Handlers 
-    @UiHandler("gastouCBox")
-    void onGastouCBoxClick(ClickEvent event) {
-        if(getUiHandlers() != null) {
-            getUiHandlers().onGastouCBoxClick();
-        }
-    }
+	 private void limpaFormulario() {
 
-    @UiHandler("pagarCBox")
-    void onPagarCBoxClick(ClickEvent event) {
-        if(getUiHandlers() != null) {
-            getUiHandlers().onPagarCBoxClick();
-        }
-    }
+		  nomeTBox.setText("");
+		  emailTBox.setText("");
 
-    
+		  gastouCBox.setValue(false);
+		  valorGastouTBox.setValue(0.0);
+		  valorGastouTBox.setEnabled(false);
+
+		  pagarCBox.setValue(false);
+		  adultosTBox.setValue(1.0);
+		  criancasTBox.setValue(0.0);
+		  adultosTBox.setEnabled(false);
+		  criancasTBox.setEnabled(false);
+
+	 }
+
+	 @Override
+	 public RachaSocialItensDto pegaDadosTela() {
+		  RachaSocialItensDto item = new RachaSocialItensDto();
+
+		  item.setaValores(
+					 nomeTBox.getValue(), 
+					 emailTBox.getValue(), 
+					 gastouCBox.getValue(), 
+					 valorGastouTBox.getValue(), 
+					 pagarCBox.getValue(),
+					 adultosTBox.getValue(), 
+					 new Double("100"), 
+					 criancasTBox.getValue(), 
+					 new Double("50"));
+
+		  return item;
+
+	 }
+
+//	 public HasClickHandlers getClickGastouCBox() {
+//		  return gastouCBox;
+//	 }
+
+	 // Handlers
+	 @UiHandler("gastouCBox")
+	 void onGastouCBoxClick(ClickEvent event) {
+		  if (getUiHandlers() != null) {
+				getUiHandlers().onGastouCBoxClick();
+		  }
+	 }
+
+	 @UiHandler("pagarCBox")
+	 void onPagarCBoxClick(ClickEvent event) {
+		  if (getUiHandlers() != null) {
+				getUiHandlers().onPagarCBoxClick();
+		  }
+	 }
+
 }

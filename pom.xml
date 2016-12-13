@@ -65,6 +65,7 @@
 
     <build>
         <outputDirectory>${webappDirectory}/WEB-INF/classes</outputDirectory>
+        <finalName>divideConta</finalName>
 
         <resources>
             <resource>

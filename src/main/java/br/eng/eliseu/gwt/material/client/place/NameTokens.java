@@ -20,7 +20,7 @@
 package br.eng.eliseu.gwt.material.client.place;
 
 public class NameTokens {
-	public static final String teste = "teste";
+	public static final String teste = "/teste";
 	public static final String RACHA_SOCIAL = "/racha-social";
 	public static final String HOME = "/home";
 
