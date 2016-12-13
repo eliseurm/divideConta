@@ -19,17 +19,24 @@
 			<m:MaterialModal ui:field="modal" type="DEFAULT" dismissible="false" inDuration="500" outDuration="500">
 				
 				<m:MaterialModalContent>
-					<m:MaterialTitle title="Informações" description="Preencha os campos do formulario e clique em Gravar" />
+					<m:MaterialTitle title="Informações" description="Informe o nome da pessoa e qual foi a participação dela na divisão das despesas" />
 				
-					<m:MaterialTextBox ui:field="nomeTBox" label="Nome" />
-					<m:MaterialTextBox ui:field="emailTBox" label="e-Mail" />
+					<m:MaterialRow paddingTop="20">
+						<m:MaterialTextBox ui:field="nomeTBox" label="Nome" />
+						<m:MaterialTextBox ui:field="emailTBox" label="e-Mail" />
+					</m:MaterialRow>
 					
-					<m:MaterialCheckBox ui:field="gastouCBox" text="Este Gastou com alguma coisa"/>
-					<m:MaterialDoubleBox ui:field="valorGastouTBox" label="Valor que gastou" />
+					<m:MaterialRow paddingTop="20">
+						<m:MaterialCheckBox ui:field="gastouCBox" text="Esta pessoa fez compras"/>
+						<m:MaterialDoubleBox ui:field="valorGastouTBox" label="Valor que gastou" />
+					</m:MaterialRow>
 					
-					<m:MaterialCheckBox ui:field="pagarCBox" text="Este vai pagar"/>
-					<m:MaterialDoubleBox ui:field="adultosTBox" label="Vai pagar para quantos Adultos? (Inteira = 100%)" />
-					<m:MaterialDoubleBox ui:field="criancasTBox" label="Vai pagar para quantas Crianças? (Meia = 50%)" />
+					<m:MaterialRow paddingTop="20">
+						<m:MaterialCheckBox ui:field="pagarCBox" text="Esta pessoa vai pagar para:"/>
+						<m:MaterialDoubleBox ui:field="adultosTBox" label="Vai pagar para quantos Adultos? (Inteira = 100%)" />
+						<m:MaterialDoubleBox ui:field="criancasTBox" label="Vai pagar para quantas Crianças?" />
+						<m:MaterialDoubleBox ui:field="criancasPercentualTBox" label="Percentual para quem paga Meia" />
+					</m:MaterialRow>
 
 				</m:MaterialModalContent>
 					
