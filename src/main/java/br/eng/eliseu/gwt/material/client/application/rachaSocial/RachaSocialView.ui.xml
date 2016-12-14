@@ -50,8 +50,7 @@
 			
 		</m:MaterialRow>
  		<m:MaterialRow>
-			<m.table:MaterialDataTable ui:field="table" useStickyHeader="false" useCategories="false"
-				useRowExpansion="false" selectionType="SINGLE" />
+			<m.table:MaterialDataTable ui:field="table" useStickyHeader="false" useCategories="false" useRowExpansion="false" selectionType="SINGLE" />
 		</m:MaterialRow>
 		
 <!-- 		<m:MaterialRow addStyleNames="code">

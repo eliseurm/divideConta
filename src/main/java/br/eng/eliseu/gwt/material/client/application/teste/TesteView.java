@@ -1,5 +1,8 @@
 package br.eng.eliseu.gwt.material.client.application.teste;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.inject.Inject;
 
 import com.google.gwt.uibinder.client.UiBinder;
@@ -54,6 +57,18 @@ class TesteView extends Composite implements TestePresenter.MyView {
 		table.addColumn(colID, "ID");
 		table.addColumn(colNome, "Nome");
 		table.addColumn(colEmail, "e-Mail");
+
+		
+		  List<RachaSocialItensDto> listaDB = new ArrayList<RachaSocialItensDto>();
+		  RachaSocialItensDto item;
+		  for(int i = 0; i <= 5; i++){
+			  item = new RachaSocialItensDto();
+			  item.setaValores("Eliseu", "eliseu@eliseu", true, 100.0, true, 1.0, 100.0, 0.0, 50.0);
+			  listaDB.add(item);
+		  }
+		  table.setRowData(1, listaDB);
+		  table.setRedraw(true); 
+		  table.refreshView();
 
 	}
 

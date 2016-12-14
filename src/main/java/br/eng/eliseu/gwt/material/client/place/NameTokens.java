@@ -20,7 +20,6 @@
 package br.eng.eliseu.gwt.material.client.place;
 
 public class NameTokens {
-	public static final String teste2 = "teste2";
 
 	public static final String TESTE = "/teste";
 	public static final String RACHA_SOCIAL = "/racha-social";
@@ -30,8 +29,5 @@ public class NameTokens {
 		return TESTE;
 	}
 
-	public static String getTeste2() {
-		return teste2;
-	}
 
 }
