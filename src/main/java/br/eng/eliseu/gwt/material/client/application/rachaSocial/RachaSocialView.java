@@ -283,26 +283,14 @@ class RachaSocialView extends ViewWithUiHandlers<RachaSocialUiHandlers> implemen
 //			});
 
 		
-			TextColumn<RachaSocialItensDto> colID = new TextColumn<RachaSocialItensDto>() {
-				@Override
-				public String getValue(RachaSocialItensDto object) {
-					return String.valueOf(object.getId());
-				}
-			};
+//			TextColumn<RachaSocialItensDto> colID = new TextColumn<RachaSocialItensDto>() {
+//				@Override
+//				public String getValue(RachaSocialItensDto object) {
+//					return String.valueOf(object.getId());
+//				}
+//			};
 
 			TextColumn<RachaSocialItensDto> colNome = new TextColumn<RachaSocialItensDto>() {
-
-				@Override
-				public String getName() {
-					 super.getName();
-					 return "Nome";
-				}
-
-				@Override
-				public String getHeaderWidth() {
-					super.getHeaderWidth();
-					return "150px";
-				}
 
 				@Override
 				public String getValue(RachaSocialItensDto object) {
@@ -310,8 +298,7 @@ class RachaSocialView extends ViewWithUiHandlers<RachaSocialUiHandlers> implemen
 				}
 				 
 			};
-			colNome.setHeaderWidth("150");
-			colNome.setName("Nome");
+			colNome.setHeaderWidth("300px");
 			
 			TextColumn<RachaSocialItensDto> colEmail = new TextColumn<RachaSocialItensDto>() {
 				@Override
@@ -320,12 +307,12 @@ class RachaSocialView extends ViewWithUiHandlers<RachaSocialUiHandlers> implemen
 				}
 			};
 			
-			Column<RachaSocialItensDto, Boolean> colGastou = new Column<RachaSocialItensDto, Boolean>( new CheckboxCell(true, false)) {
-				@Override
-				public Boolean getValue(RachaSocialItensDto object) {
-					return object.isGastou();
-				}
-			};
+//			Column<RachaSocialItensDto, Boolean> colGastou = new Column<RachaSocialItensDto, Boolean>( new CheckboxCell(true, false)) {
+//				@Override
+//				public Boolean getValue(RachaSocialItensDto object) {
+//					return object.isGastou();
+//				}
+//			};
 
 			TextColumn<RachaSocialItensDto> colValorGasto = new TextColumn<RachaSocialItensDto>() {
 				@Override
@@ -333,14 +320,14 @@ class RachaSocialView extends ViewWithUiHandlers<RachaSocialUiHandlers> implemen
 					return object.getValorGasto().toString();
 				}
 			};
-			colValorGasto.setTextAlign(TextAlign.RIGHT);
+//			colValorGasto.setTextAlign(TextAlign.RIGHT);
 			
-			Column<RachaSocialItensDto, Boolean> colPaga = new Column<RachaSocialItensDto, Boolean>( new CheckboxCell(true, false)) {
-				@Override
-				public Boolean getValue(RachaSocialItensDto object) {
-					return object.isPaga();
-				}
-			};
+//			Column<RachaSocialItensDto, Boolean> colPaga = new Column<RachaSocialItensDto, Boolean>( new CheckboxCell(true, false)) {
+//				@Override
+//				public Boolean getValue(RachaSocialItensDto object) {
+//					return object.isPaga();
+//				}
+//			};
 
 			TextColumn<RachaSocialItensDto> colQtdeAdultos = new TextColumn<RachaSocialItensDto>() {
 				@Override
@@ -348,7 +335,7 @@ class RachaSocialView extends ViewWithUiHandlers<RachaSocialUiHandlers> implemen
 					return object.getQtdeAdultos().toString();
 				}
 			};
-			colQtdeAdultos.setTextAlign(TextAlign.RIGHT);
+//			colQtdeAdultos.setTextAlign(TextAlign.RIGHT);
 			
 			TextColumn<RachaSocialItensDto> colPercAdultos = new TextColumn<RachaSocialItensDto>() {
 				@Override
@@ -356,7 +343,7 @@ class RachaSocialView extends ViewWithUiHandlers<RachaSocialUiHandlers> implemen
 					return object.getPercentualAdultos().toString();
 				}
 			};
-			colPercAdultos.setTextAlign(TextAlign.RIGHT);
+//			colPercAdultos.setTextAlign(TextAlign.RIGHT);
 			
 			TextColumn<RachaSocialItensDto> colQtdeCriancas = new TextColumn<RachaSocialItensDto>() {
 				@Override
@@ -364,15 +351,15 @@ class RachaSocialView extends ViewWithUiHandlers<RachaSocialUiHandlers> implemen
 					return object.getQtdeCriancas().toString();
 				}
 			};
-			colQtdeCriancas.setTextAlign(TextAlign.RIGHT);
+//			colQtdeCriancas.setTextAlign(TextAlign.RIGHT);
 			
-			TextColumn<RachaSocialItensDto> colPercCriancas = new TextColumn<RachaSocialItensDto>() {
-				@Override
-				public String getValue(RachaSocialItensDto object) {
-					return object.getPercentualCriancas().toString();
-				}
-			};
-			colPercCriancas.setTextAlign(TextAlign.RIGHT);
+//			TextColumn<RachaSocialItensDto> colPercCriancas = new TextColumn<RachaSocialItensDto>() {
+//				@Override
+//				public String getValue(RachaSocialItensDto object) {
+//					return object.getPercentualCriancas().toString();
+//				}
+//			};
+//			colPercCriancas.setTextAlign(TextAlign.RIGHT);
 
 			TextColumn<RachaSocialItensDto> colHaReceber = new TextColumn<RachaSocialItensDto>() {
 				@Override
@@ -380,7 +367,7 @@ class RachaSocialView extends ViewWithUiHandlers<RachaSocialUiHandlers> implemen
 					return object.getHaReceber().toString();
 				}
 			};
-			colHaReceber.setTextAlign(TextAlign.RIGHT);
+//			colHaReceber.setTextAlign(TextAlign.RIGHT);
 
 			TextColumn<RachaSocialItensDto> colHaPagar = new TextColumn<RachaSocialItensDto>() {
 				@Override
@@ -388,11 +375,11 @@ class RachaSocialView extends ViewWithUiHandlers<RachaSocialUiHandlers> implemen
 					return object.getHaPagar().toString();
 				}
 			};
-			colHaPagar.setTextAlign(TextAlign.RIGHT);
+//			colHaPagar.setTextAlign(TextAlign.RIGHT);
 
 			
 
-			table.addColumn(colID, "ID");
+//			table.addColumn(colID, "ID");
 			table.addColumn(colNome, "Nome");
 			table.addColumn(colEmail, "e-Mail");
 //			table.addColumn(colGastou, "Gastou");
@@ -401,7 +388,7 @@ class RachaSocialView extends ViewWithUiHandlers<RachaSocialUiHandlers> implemen
 			table.addColumn(colQtdeAdultos, "Qtde Adultos");
 			table.addColumn(colPercAdultos, "% Adultos");
 			table.addColumn(colQtdeCriancas, "Qtde Crianças");
-			table.addColumn(colPercCriancas, "% Crianças");
+//			table.addColumn(colPercCriancas, "% Crianças");
 			table.addColumn(colHaReceber, "Ha Receber");
 			table.addColumn(colHaPagar, "Ha Pagar");
 
