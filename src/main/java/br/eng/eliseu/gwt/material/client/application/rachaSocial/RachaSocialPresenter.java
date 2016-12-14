@@ -34,7 +34,8 @@ public class RachaSocialPresenter extends Presenter<RachaSocialPresenter.MyView,
         
     }
 
-    
+
+
 	@Override
 	public void onGravarBtnClick() {
 		
