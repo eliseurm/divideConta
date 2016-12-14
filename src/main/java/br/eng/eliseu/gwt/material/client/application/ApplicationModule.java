@@ -29,7 +29,7 @@ public class ApplicationModule extends AbstractPresenterModule {
 
     @Override
     protected void configure() {
-        install(new TesteModule());
+		install(new TesteModule());
 		install(new HomeModule());
         install(new RachaSocialModule());
                     
