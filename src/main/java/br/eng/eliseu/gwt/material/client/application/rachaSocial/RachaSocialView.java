@@ -1,5 +1,8 @@
 package br.eng.eliseu.gwt.material.client.application.rachaSocial;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.inject.Inject;
 
 import com.google.gwt.cell.client.CheckboxCell;
@@ -7,7 +10,7 @@ import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
-import com.google.gwt.user.cellview.client.CellTable;
+import com.google.gwt.user.client.ui.IsWidget;
 import com.google.gwt.user.client.ui.Widget;
 import com.gwtplatform.mvp.client.ViewWithUiHandlers;
 
@@ -15,6 +18,7 @@ import br.eng.eliseu.gwt.material.shared.dto.RachaSocialItensDto;
 import br.eng.eliseu.gwt.material.shared.utils.UtilsClient;
 import gwt.material.design.client.constants.TextAlign;
 import gwt.material.design.client.ui.MaterialCheckBox;
+import gwt.material.design.client.ui.MaterialContainer;
 import gwt.material.design.client.ui.MaterialDoubleBox;
 import gwt.material.design.client.ui.MaterialModal;
 import gwt.material.design.client.ui.MaterialTextBox;
@@ -27,7 +31,9 @@ class RachaSocialView extends ViewWithUiHandlers<RachaSocialUiHandlers> implemen
 
 	 interface Binder extends UiBinder<Widget, RachaSocialView> {
 	 }
-
+	 
+	 
+	 @UiField MaterialContainer container;
 	 @UiField MaterialModal modal;
 
 	 @UiField MaterialTextBox nomeTBox;
@@ -41,16 +47,13 @@ class RachaSocialView extends ViewWithUiHandlers<RachaSocialUiHandlers> implemen
 	 @UiField MaterialDoubleBox criancasTBox;
 	 @UiField MaterialDoubleBox criancasPercentualTBox;
 	 
-	 @UiField (provided=true) MaterialDataTable<RachaSocialItensDto> table;
+	 @UiField MaterialDataTable<RachaSocialItensDto> table;
 
 	 @Inject
 	 RachaSocialView(Binder uiBinder) {
-		 table = new MaterialDataTable<RachaSocialItensDto>();
-		 table = criaColunas(table);
 		 
 		  initWidget(uiBinder.createAndBindUi(this));
 
-		  // cbGastou.set
 
 		  // winRachaSocial.addOpenHandler(new OpenHandler<Boolean>() {
 		  // @Override
@@ -69,10 +72,29 @@ class RachaSocialView extends ViewWithUiHandlers<RachaSocialUiHandlers> implemen
 		  
 	 }
 
+	    @Override
+	    public void setInSlot(Object slot, IsWidget content) {
+	    	super.setInSlot(slot, content);
+	    	
+	    	table = criaColunas(table);
+	    }
+	 
+	 
 	 @UiHandler("btnOpenModal")
 	 void onOpenModalClick(ClickEvent e) {
-		 limpaFormulario();
-		 modal.open();
+//		 limpaFormulario();
+//		 modal.open();
+		 
+		  List<RachaSocialItensDto> listaDB = new ArrayList<RachaSocialItensDto>();
+		  RachaSocialItensDto item;
+		  for(int i = 0; i <= 5; i++){
+			  item = new RachaSocialItensDto();
+			  item.setaValores("Eliseu", "eliseu@eliseu", true, 100.0, true, 1.0, 100.0, 0.0, 50.0);
+			  listaDB.add(item);
+		  }
+		  table.setRowData(1, listaDB);
+		  
+
 	 }
 	 
 	 @UiHandler("fechaBtn")
@@ -86,6 +108,7 @@ class RachaSocialView extends ViewWithUiHandlers<RachaSocialUiHandlers> implemen
 			  if (checaCampoEmBranco()){
 				  getUiHandlers().onGravarBtnClick();
 				  modal.close();
+				  
 			  }
 		  }
 	 }
@@ -261,12 +284,22 @@ class RachaSocialView extends ViewWithUiHandlers<RachaSocialUiHandlers> implemen
 			};
 
 			TextColumn<RachaSocialItensDto> colNome = new TextColumn<RachaSocialItensDto>() {
+
+//				@Override
+//				public String getHeaderWidth() {
+//					super.getHeaderWidth();
+//					return "150";
+//				}
+//
 				@Override
 				public String getValue(RachaSocialItensDto object) {
 					return object.getNome();
 				}
+				 
 			};
-
+			colNome.setHeaderWidth("150");
+			colNome.setName("Nome");
+			
 			TextColumn<RachaSocialItensDto> colEmail = new TextColumn<RachaSocialItensDto>() {
 				@Override
 				public String getValue(RachaSocialItensDto object) {
@@ -346,19 +379,21 @@ class RachaSocialView extends ViewWithUiHandlers<RachaSocialUiHandlers> implemen
 
 			
 
-//			tabela.addColumn(colID, "ID");
+			tabela.addColumn(colID, "ID");
 			tabela.addColumn(colNome, "Nome");
-//			tabela.addColumn(colEmail, "e-Mail");
-//			tabela.addColumn(colGastou, "Gastou");
-//			tabela.addColumn(colValorGasto, "Valor Gasto");
-//			tabela.addColumn(colPaga, "Pagante");
-//			tabela.addColumn(colQtdeAdultos, "Qtde Adultos");
-//			tabela.addColumn(colPercAdultos, "% Adultos");
-//			tabela.addColumn(colQtdeCriancas, "Qtde Crianças");
-//			tabela.addColumn(colPercCriancas, "% Crianças");
-//			tabela.addColumn(colHaReceber, "Ha Receber");
-//			tabela.addColumn(colHaPagar, "Ha Pagar");
-//
+			tabela.addColumn(colEmail, "e-Mail");
+			tabela.addColumn(colGastou, "Gastou");
+			tabela.addColumn(colValorGasto, "Valor Gasto");
+			tabela.addColumn(colPaga, "Pagante");
+			tabela.addColumn(colQtdeAdultos, "Qtde Adultos");
+			tabela.addColumn(colPercAdultos, "% Adultos");
+			tabela.addColumn(colQtdeCriancas, "Qtde Crianças");
+			tabela.addColumn(colPercCriancas, "% Crianças");
+			tabela.addColumn(colHaReceber, "Ha Receber");
+			tabela.addColumn(colHaPagar, "Ha Pagar");
+
+			tabela.setVisibleRange(0, 5);
+			
 //			tabela.setWidth("100%");
 			
 //			tabela.setColumnWidth(colID, 0, Unit.PX);

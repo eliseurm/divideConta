@@ -8,10 +8,11 @@ import br.eng.eliseu.gwt.material.shared.utils.UtilsClient;
 
 //@Entity
 //@Table(name="DIC_RACHACOMPRASITENS")
-public class RachaSocialItensDto implements Serializable{
+public class RachaSocialItensDto implements Serializable {
 	
-	private static final long serialVersionUID = -6862859190919938476L;
+	private static final long serialVersionUID = -8604699186441796892L;
 
+	
 //	@Id
 //	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer id;
@@ -174,4 +175,8 @@ public class RachaSocialItensDto implements Serializable{
 	public void setId(Integer id) {
 		this.id = id;
 	}
+
+
+
+
 }
