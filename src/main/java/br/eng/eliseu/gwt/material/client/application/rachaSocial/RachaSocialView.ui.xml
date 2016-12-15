@@ -11,47 +11,51 @@
 	</ui:style>
 
 	<m:MaterialContainer ui:field="container">
-		<m:MaterialLabel text="Ola Racha Social!!" />
+<!-- 		<m:MaterialLabel padding="30" textAlign="CENTER" text="Adicione na tabela as pessoas que entrão na divisão da conta." /> -->
+		<m:MaterialTitle paddingBottom="20" textAlign="CENTER" title="Adicione na tabela as pessoas que entrão na divisão da conta."/>
 
-		<m:MaterialRow>
-			<m:MaterialButton ui:field="btnOpenModal" text="Open Modal" textColor="WHITE" />
-			
-			<m:MaterialModal ui:field="modal" type="DEFAULT" dismissible="false" inDuration="500" outDuration="500">
-				
-				<m:MaterialModalContent>
-					<m:MaterialTitle title="Informações" description="Informe o nome da pessoa e qual foi a participação dela na divisão das despesas" />
-				
-					<m:MaterialRow paddingTop="20">
-						<m:MaterialTextBox ui:field="nomeTBox" label="Nome" />
-						<m:MaterialTextBox ui:field="emailTBox" label="e-Mail" />
-					</m:MaterialRow>
-					
-					<m:MaterialRow paddingTop="20">
-						<m:MaterialCheckBox ui:field="gastouCBox" text="Esta pessoa fez compras"/>
-						<m:MaterialDoubleBox ui:field="valorGastouTBox" label="Valor que gastou" />
-					</m:MaterialRow>
-					
-					<m:MaterialRow paddingTop="20">
-						<m:MaterialCheckBox ui:field="pagarCBox" text="Esta pessoa vai pagar para:"/>
-						<m:MaterialDoubleBox ui:field="adultosTBox" label="Vai pagar para quantos Adultos? (Inteira = 100%)" />
-						<m:MaterialDoubleBox ui:field="criancasTBox" label="Vai pagar para quantas Crianças?" />
-						<m:MaterialDoubleBox ui:field="criancasPercentualTBox" label="Percentual para quem paga Meia" />
-					</m:MaterialRow>
-
-				</m:MaterialModalContent>
-					
-				<m:MaterialModalFooter>
-					<m:MaterialButton ui:field="fechaBtn" text="Fechar" type="FLAT"  waves="LIGHT" />
-					<m:MaterialButton ui:field="gravarBtn" text="Gravar" type="FLAT" waves="LIGHT" />
-				</m:MaterialModalFooter>
-					
-					
-			</m:MaterialModal>
+		<m:MaterialRow textAlign="CENTER">
+				<m:MaterialButton ui:field="novoItemBtn" text="Novo Item" textColor="WHITE" />
+				<m:MaterialButton ui:field="excluiItemBtn" text="Exclui Item" textColor="WHITE" />
+				<m:MaterialButton ui:field="limpaTabelaBtn" text="Limpa Tabela" textColor="WHITE" />
 			
 		</m:MaterialRow>
+		
  		<m:MaterialRow>
 			<m.table:MaterialDataTable ui:field="table" useStickyHeader="false" useCategories="false" useRowExpansion="false" selectionType="SINGLE" />
 		</m:MaterialRow>
+		
+		<m:MaterialModal ui:field="modal" type="FIXED_FOOTER" dismissible="false" inDuration="500" outDuration="500">
+			
+			<m:MaterialModalContent>
+				<m:MaterialTitle title="Informações" description="Informe o nome da pessoa e qual foi a participação dela na divisão das despesas" />
+			
+				<m:MaterialRow paddingTop="20">
+					<m:MaterialTextBox ui:field="nomeTBox" label="Nome" />
+					<m:MaterialTextBox ui:field="emailTBox" label="e-Mail" />
+				</m:MaterialRow>
+				
+				<m:MaterialRow paddingTop="20">
+					<m:MaterialCheckBox ui:field="gastouCBox" text="Esta pessoa fez compras"/>
+					<m:MaterialDoubleBox ui:field="valorGastouTBox" label="Valor que gastou" />
+				</m:MaterialRow>
+				
+				<m:MaterialRow paddingTop="20">
+					<m:MaterialCheckBox ui:field="pagarCBox" text="Esta pessoa vai pagar para:"/>
+					<m:MaterialDoubleBox ui:field="adultosTBox" label="Vai pagar para quantos Adultos? (Inteira = 100%)" />
+					<m:MaterialDoubleBox ui:field="criancasTBox" label="Vai pagar para quantas Crianças?" />
+					<m:MaterialDoubleBox ui:field="criancasPercentualTBox" label="Percentual para quem paga Meia" />
+				</m:MaterialRow>
+
+			</m:MaterialModalContent>
+				
+			<m:MaterialModalFooter>
+				<m:MaterialButton ui:field="fechaBtn" text="Fechar" type="FLAT"  waves="LIGHT" />
+				<m:MaterialButton ui:field="gravarBtn" text="Gravar" type="FLAT" waves="LIGHT" />
+			</m:MaterialModalFooter>
+				
+				
+		</m:MaterialModal>
 		
 <!-- 		<m:MaterialRow addStyleNames="code">
             <m:MaterialTitle title="Simple Window" description="Simple Window contains only header toolbar (Close, Max / Restore action buttons)."/>

@@ -1,5 +1,8 @@
 package br.eng.eliseu.gwt.material.client.application.rachaSocial;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.google.inject.Inject;
 import com.google.web.bindery.event.shared.EventBus;
 import com.gwtplatform.mvp.client.HasUiHandlers;
@@ -19,7 +22,8 @@ public class RachaSocialPresenter extends Presenter<RachaSocialPresenter.MyView,
     	public RachaSocialItensDto pegaDadosTela();
     }
     
-    private RachaSocialItensDto item = new RachaSocialItensDto();
+    private List<RachaSocialItensDto> listaItens = new ArrayList<RachaSocialItensDto>();
+    
     
     @ProxyStandard
     @NameToken(NameTokens.RACHA_SOCIAL)
@@ -37,10 +41,18 @@ public class RachaSocialPresenter extends Presenter<RachaSocialPresenter.MyView,
 
 
 	@Override
-	public void onGravarBtnClick() {
-		
-		
+	public List<RachaSocialItensDto> gravaItensPresenter(RachaSocialItensDto item) {
+		 listaItens.add(item);
+		 return listaItens;
 	}
+
+
+
+   @Override
+   public List<RachaSocialItensDto> limpaItensPresenter() {
+   	 listaItens.clear();
+   	 return listaItens;
+   }
     
     
     
