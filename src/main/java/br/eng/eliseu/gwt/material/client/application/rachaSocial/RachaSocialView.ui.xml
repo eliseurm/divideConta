@@ -22,7 +22,7 @@
 		</m:MaterialRow>
 		
  		<m:MaterialRow>
-			<m.table:MaterialDataTable ui:field="table" useStickyHeader="false" useCategories="false" useRowExpansion="false" selectionType="SINGLE" />
+			<m.table:MaterialDataTable ui:field="table" useStickyHeader="false" useCategories="false" useRowExpansion="false" selectionType="MULTIPLE" />
 		</m:MaterialRow>
 		
 		<m:MaterialModal ui:field="modal" type="FIXED_FOOTER" dismissible="false" inDuration="500" outDuration="500">

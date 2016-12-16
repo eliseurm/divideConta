@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
@@ -97,8 +98,11 @@ class RachaSocialView extends ViewWithUiHandlers<RachaSocialUiHandlers> implemen
 	 @UiHandler("limpaTabelaBtn")
 	 void onLimpaTabelaBtnClick(ClickEvent e) {
 		  if (getUiHandlers() != null) {
-				table.selectAllRows(true);
-				table.removeRowSelectHandlers();
+				int n = table.getTotalRows();
+				n = table.getSelectedRowModels(false).size();
+				n = table.getRowCount();
+				n = table.getRowHeight();
+//				table.selectAllRows(true);
 		  }
 	 }
 
@@ -411,22 +415,34 @@ class RachaSocialView extends ViewWithUiHandlers<RachaSocialUiHandlers> implemen
 			
 //			tabela.setWidth("100%");
 			
-//			tabela.setColumnWidth(colID, 0, Unit.PX);
-//			tabela.setColumnWidth(colNome, 150, Unit.PX);
-//			tabela.setColumnWidth(colEmail, 0.0, Unit.PX);
-//			tabela.setColumnWidth(colGastou, 40, Unit.PX);
-//			tabela.setColumnWidth(colValorGasto, 70, Unit.PX);
-//			tabela.setColumnWidth(colPaga, 40, Unit.PX);
-//			tabela.setColumnWidth(colQtdeAdultos, 50, Unit.PX);
-//			tabela.setColumnWidth(colPercAdultos, 0, Unit.PX);
-//			tabela.setColumnWidth(colQtdeCriancas, 50, Unit.PX);
-//			tabela.setColumnWidth(colPercCriancas, 0, Unit.PX);
-//			tabela.setColumnWidth(colHaReceber, 70, Unit.PX);
-//			tabela.setColumnWidth(colHaPagar, 70, Unit.PX);
-
+//			// --- passa aqui sempre que selecinar uma linha
+			table.addRowSelectHandler((e, model, elem, selected) -> {
+	            updateSelectedRows(table.getSelectedRowModels(false).size());
+	            GWT.log(e.getType() + " " + model.getNome() + ": " + selected);
+	            return true;
+	        });
+//			
+//			table.addSelectAllHandler((e, models, elems, selected) -> {
+//	            updateSelectedRows(table.getSelectedRowModels(false).size());
+//	            GWT.log("Selected["+selected+"]: " + models.size() + " models");
+//	            return true;
+//	        });
+			
 			
 		}
 
-
+		private void updateSelectedRows(int size) {
+	        String word = " item ";
+	        if(size > 1) {
+	            word = " items ";
+	        }
+	        if(size <= 0) {
+	            table.getTableTitle().setText("Table Title");
+	            table.getScaffolding().getTopPanel().removeStyleName("active-header");
+	        }else {
+	            table.getScaffolding().getTopPanel().addStyleName("active-header");
+	            table.getTableTitle().setText(size + word + "selected ");
+	        }
+	    }
 	 
 }
