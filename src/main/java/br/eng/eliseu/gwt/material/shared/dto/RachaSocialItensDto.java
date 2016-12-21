@@ -1,6 +1,5 @@
 package br.eng.eliseu.gwt.material.shared.dto;
 
-import java.io.Serializable;
 import java.math.BigDecimal;
 
 import br.eng.eliseu.gwt.material.shared.utils.UtilsClient;
@@ -8,14 +7,12 @@ import br.eng.eliseu.gwt.material.shared.utils.UtilsClient;
 
 //@Entity
 //@Table(name="DIC_RACHACOMPRASITENS")
-public class RachaSocialItensDto implements Serializable {
+public class RachaSocialItensDto extends BaseEntity {
 	
-	private static final long serialVersionUID = -8604699186441796892L;
-
 	
 //	@Id
 //	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Integer id;
+//	private Integer id;
 
 //	@ManyToOne(fetch = FetchType.EAGER)
 //	@JoinColumn(name="id_compra")
@@ -60,7 +57,7 @@ public class RachaSocialItensDto implements Serializable {
 		this.setNome(nome);
 		this.setEmail(email);
 		this.setGastou(gastou);
-		this.setValorGasto(BigDecimal.valueOf(valorGasto));
+		this.setValorGasto(valorGasto);
 		this.setPaga(paga);
 		this.setQtdeAdultos(BigDecimal.valueOf(qtdeAdulto));
 		this.setPercentualAdultos(BigDecimal.valueOf(percentualAdultos));
@@ -96,6 +93,9 @@ public class RachaSocialItensDto implements Serializable {
 	}
 	public void setValorGasto(BigDecimal valorGasto) {
 		this.valorGasto = UtilsClient.truncaBigDecimal(valorGasto, 2);
+	}
+	public void setValorGasto(Double valorGasto) {
+		setValorGasto(BigDecimal.valueOf(valorGasto));
 	}
 	public boolean isPaga() {
 		return paga;
@@ -169,14 +169,6 @@ public class RachaSocialItensDto implements Serializable {
 	public void setHaPagar(BigDecimal haPagar) {
 		this.haPagar = UtilsClient.truncaBigDecimal(haPagar, 2);
 	}
-	public Integer getId() {
-		return id;
-	}
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-
 
 
 }

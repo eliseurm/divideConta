@@ -47,12 +47,10 @@ public class RachaSocialPresenter extends Presenter<RachaSocialPresenter.MyView,
 	}
 
 
-
-   @Override
-   public List<RachaSocialItensDto> limpaItensPresenter() {
-   	 listaItens.clear();
-   	 return listaItens;
-   }
+	@Override
+	public List<RachaSocialItensDto> getListaItensPresenter() {
+		return listaItens;		
+	}
     
     
     

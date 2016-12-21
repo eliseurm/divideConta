@@ -10,7 +10,7 @@ public interface RachaSocialUiHandlers extends UiHandlers {
 
 	 public List<RachaSocialItensDto> gravaItensPresenter(RachaSocialItensDto item);
 
-	 public List<RachaSocialItensDto> limpaItensPresenter();
+	public List<RachaSocialItensDto> getListaItensPresenter();
 
 
 }

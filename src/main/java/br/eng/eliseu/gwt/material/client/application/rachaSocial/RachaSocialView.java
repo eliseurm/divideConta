@@ -1,6 +1,5 @@
 package br.eng.eliseu.gwt.material.client.application.rachaSocial;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -19,6 +18,7 @@ import gwt.material.design.client.ui.MaterialCheckBox;
 import gwt.material.design.client.ui.MaterialContainer;
 import gwt.material.design.client.ui.MaterialDoubleBox;
 import gwt.material.design.client.ui.MaterialModal;
+import gwt.material.design.client.ui.MaterialRow;
 import gwt.material.design.client.ui.MaterialTextBox;
 import gwt.material.design.client.ui.MaterialToast;
 import gwt.material.design.client.ui.table.MaterialDataTable;
@@ -45,14 +45,16 @@ class RachaSocialView extends ViewWithUiHandlers<RachaSocialUiHandlers> implemen
 	 @UiField MaterialDoubleBox criancasPercentualTBox;
 	 
 	 @UiField MaterialDataTable<RachaSocialItensDto> table;
+	 @UiField MaterialRow rowTable;
 	 
 	 private boolean tabelaCriada = false;
-
+//	 private MaterialDataTable<RachaSocialItensDto> table;
+	 
 	 @Inject
 	 RachaSocialView(Binder uiBinder) {
 		 
 		  initWidget(uiBinder.createAndBindUi(this));
-
+		  
 		  // winRachaSocial.addOpenHandler(new OpenHandler<Boolean>() {
 		  // @Override
 		  // public void onOpen(OpenEvent<Boolean> event) {
@@ -92,17 +94,21 @@ class RachaSocialView extends ViewWithUiHandlers<RachaSocialUiHandlers> implemen
 	 @UiHandler("excluiItemBtn")
 	 void onExcluiItemBtnClick(ClickEvent e) {
 		  if (getUiHandlers() != null) {
+			  
+			  List<RachaSocialItensDto> lista = table.getSelectedRowModels(false);
+			  getUiHandlers().getListaItensPresenter().removeAll(lista);
+			  
+			  table.clearRows(true);
+			  table.setRowData(0, getUiHandlers().getListaItensPresenter());
 		  }
 	 }
 
 	 @UiHandler("limpaTabelaBtn")
 	 void onLimpaTabelaBtnClick(ClickEvent e) {
 		  if (getUiHandlers() != null) {
-				int n = table.getTotalRows();
-				n = table.getSelectedRowModels(false).size();
-				n = table.getRowCount();
-				n = table.getRowHeight();
-//				table.selectAllRows(true);
+
+			  table.clearRows(true);
+			  getUiHandlers().getListaItensPresenter().clear();
 		  }
 	 }
 
@@ -111,15 +117,17 @@ class RachaSocialView extends ViewWithUiHandlers<RachaSocialUiHandlers> implemen
 	 @UiHandler("fechaBtn")
 	 void onCloseModalClick(ClickEvent e) {
 		  
-		  List<RachaSocialItensDto> listaItens = new ArrayList<RachaSocialItensDto>();
+		  int max = getUiHandlers().getListaItensPresenter().size();
 		  RachaSocialItensDto item;
 		  for(int i = 0; i <= 5; i++){
 				  item = new RachaSocialItensDto();
+				  item.setId(max++);
 				  item.setaValores("Eliseu", "eliseu@eliseu", true, 100.0, true, 1.0, 100.0, 0.0, 50.0);
-				  listaItens.add(item);
+				  getUiHandlers().getListaItensPresenter().add(item);
 		  }
 			
-		  table.setRowData(0, listaItens);
+		  table.clearRows(true);
+		  table.setRowData(0, getUiHandlers().getListaItensPresenter());
 		  modal.close();
 	 }
 	 
@@ -274,9 +282,10 @@ class RachaSocialView extends ViewWithUiHandlers<RachaSocialUiHandlers> implemen
 		  criancasPercentualTBox.clearErrorOrSuccess();
 	 }
 
-
+	 
 		public void criaColunas(){
 			 table.getTableTitle().setText("Passoas que dividirão a conta");
+			 
 //			tabela.setKeyboardSelectionPolicy(KeyboardSelectionPolicy.ENABLED);
 //
 ////			Torna a tabela selecionavel
@@ -302,12 +311,12 @@ class RachaSocialView extends ViewWithUiHandlers<RachaSocialUiHandlers> implemen
 //			});
 
 		
-//			TextColumn<RachaSocialItensDto> colID = new TextColumn<RachaSocialItensDto>() {
-//				@Override
-//				public String getValue(RachaSocialItensDto object) {
-//					return String.valueOf(object.getId());
-//				}
-//			};
+			TextColumn<RachaSocialItensDto> colID = new TextColumn<RachaSocialItensDto>() {
+				@Override
+				public String getValue(RachaSocialItensDto object) {
+					return String.valueOf(object.getId());
+				}
+			};
 
 			TextColumn<RachaSocialItensDto> colNome = new TextColumn<RachaSocialItensDto>() {
 
@@ -398,7 +407,7 @@ class RachaSocialView extends ViewWithUiHandlers<RachaSocialUiHandlers> implemen
 
 			
 
-//			table.addColumn(colID, "ID");
+			table.addColumn(colID, "ID");
 			table.addColumn(colNome, "Nome");
 //			table.addColumn(colEmail, "e-Mail");
 //			table.addColumn(colGastou, "Gastou");
@@ -411,7 +420,7 @@ class RachaSocialView extends ViewWithUiHandlers<RachaSocialUiHandlers> implemen
 			table.addColumn(colHaReceber, "Ha Receber");
 			table.addColumn(colHaPagar, "Ha Pagar");
 
-			table.setVisibleRange(0, 5);
+//			table.setVisibleRange(0, 5);
 			
 //			tabela.setWidth("100%");
 			
@@ -421,12 +430,12 @@ class RachaSocialView extends ViewWithUiHandlers<RachaSocialUiHandlers> implemen
 	            GWT.log(e.getType() + " " + model.getNome() + ": " + selected);
 	            return true;
 	        });
-//			
-//			table.addSelectAllHandler((e, models, elems, selected) -> {
-//	            updateSelectedRows(table.getSelectedRowModels(false).size());
-//	            GWT.log("Selected["+selected+"]: " + models.size() + " models");
-//	            return true;
-//	        });
+			
+			table.addSelectAllHandler((e, models, elems, selected) -> {
+	            updateSelectedRows(table.getSelectedRowModels(false).size());
+	            GWT.log("Selected["+selected+"]: " + models.size() + " models");
+	            return true;
+	        });
 			
 			
 		}
