@@ -21,26 +21,45 @@ package br.eng.eliseu.gwt.material.client.application.home;
 
 import com.google.inject.Inject;
 import com.google.web.bindery.event.shared.EventBus;
+import com.gwtplatform.mvp.client.HasUiHandlers;
 import com.gwtplatform.mvp.client.Presenter;
 import com.gwtplatform.mvp.client.View;
 import com.gwtplatform.mvp.client.annotations.NameToken;
 import com.gwtplatform.mvp.client.annotations.ProxyStandard;
+import com.gwtplatform.mvp.client.proxy.PlaceManager;
 import com.gwtplatform.mvp.client.proxy.ProxyPlace;
+import com.gwtplatform.mvp.shared.proxy.PlaceRequest;
 
 import br.eng.eliseu.gwt.material.client.application.ApplicationPresenter;
 import br.eng.eliseu.gwt.material.client.place.NameTokens;
 
-public class HomePresenter extends Presenter<HomePresenter.MyView, HomePresenter.MyProxy> {
-    
-    interface MyView extends View { }
+public class HomePresenter extends Presenter<HomePresenter.MyView, HomePresenter.MyProxy> implements HomeUiHandlers {
 
-    @ProxyStandard
-    @NameToken(NameTokens.HOME)
-    interface MyProxy extends ProxyPlace<HomePresenter> {
-    }
+	 interface MyView extends View, HasUiHandlers<HomeUiHandlers> {
 
-    @Inject
-    HomePresenter( EventBus eventBus, MyView view, MyProxy proxy) {
-        super(eventBus, view, proxy, ApplicationPresenter.SLOT_MAIN);
-    }
+	 }
+
+	 @ProxyStandard
+	 @NameToken(NameTokens.HOME)
+	 interface MyProxy extends ProxyPlace<HomePresenter> {
+	 }
+
+	 private PlaceManager placeManager;
+
+	 @Inject
+	 HomePresenter(EventBus eventBus, MyView view, MyProxy proxy, PlaceManager placeManager) {
+		  super(eventBus, view, proxy, ApplicationPresenter.SLOT_MAIN);
+		  this.placeManager = placeManager;
+
+		  getView().setUiHandlers(this);
+	 }
+
+	 @Override
+	 public void chamaTela(String nameToken) {
+		  PlaceRequest placeRequest = new PlaceRequest.Builder()
+					 .nameToken(nameToken)
+					 .build();
+
+		  placeManager.revealPlace(placeRequest);
+	 }
 }

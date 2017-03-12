@@ -55,8 +55,9 @@
 					</m:MaterialRow>
 				</ma:sideprofile.MaterialSideProfile>
 
+				<m:MaterialLink targetHistoryToken="{HOME}" text="Home" iconType="HOME" />
 				<m:MaterialLink targetHistoryToken="{RACHA_SOCIAL}" text="Divide Conta Social" iconType="SHOPPING_CART" />
-				<m:MaterialLink targetHistoryToken="{HOME}" text="Racha Conta Restaurante" iconType="LOCAL_DINING" />
+				<m:MaterialLink targetHistoryToken="" text="Racha Conta Restaurante" iconType="LOCAL_DINING" />
 				<m:MaterialDivider />
 				<m:MaterialLink text="Configurações" iconType="SETTINGS" />
 			</m:MaterialSideNav>
@@ -70,7 +71,7 @@
 			<m:MaterialLabel textColor="WHITE" text="Este app foi desenvolvido com fins pedagogicos, e pode ser usado livremente." />
 
 			<m:MaterialFooterCopyright addStyleNames="footer-copyright">
-				<m:MaterialLabel text="© 2012 Eliseu Rodrigues Menezes" />
+				<m:MaterialLabel text="© 2016 Eliseu Rodrigues Menezes" />
 			</m:MaterialFooterCopyright>
 		</m:MaterialFooter>
 

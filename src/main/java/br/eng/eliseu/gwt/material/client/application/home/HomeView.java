@@ -21,18 +21,32 @@ package br.eng.eliseu.gwt.material.client.application.home;
 
 import javax.inject.Inject;
 
+import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.uibinder.client.UiBinder;
+import com.google.gwt.uibinder.client.UiField;
+import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.ui.Widget;
-import com.gwtplatform.mvp.client.ViewImpl;
+import com.gwtplatform.mvp.client.ViewWithUiHandlers;
 
-public class HomeView extends ViewImpl implements HomePresenter.MyView {
+import br.eng.eliseu.gwt.material.client.place.NameTokens;
+import gwt.material.design.client.ui.MaterialCard;
 
-    interface Binder extends UiBinder<Widget, HomeView> { 
-    }
+public class HomeView extends ViewWithUiHandlers<HomeUiHandlers> implements HomePresenter.MyView {
 
-    @Inject
-    HomeView(Binder uiBinder) {
-	initWidget(uiBinder.createAndBindUi(this));
-	
-    }
+	 interface Binder extends UiBinder<Widget, HomeView> {
+	 }
+
+	 @UiField MaterialCard rachaSocialCard;
+
+	 @Inject
+	 HomeView(Binder uiBinder) {
+		  initWidget(uiBinder.createAndBindUi(this));
+
+	 }
+	 
+		@UiHandler("rachaSocialCard")
+		 void onComprasSocialCardClick(ClickEvent e) {
+			 getUiHandlers().chamaTela(NameTokens.RACHA_SOCIAL);
+		 }
+
 }

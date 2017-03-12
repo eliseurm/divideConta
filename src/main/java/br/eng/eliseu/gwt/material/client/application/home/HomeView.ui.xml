@@ -22,15 +22,17 @@
     xmlns:g='urn:import:com.google.gwt.user.client.ui'
     xmlns:m="urn:import:gwt.material.design.client.ui"
     xmlns:ma="urn:import:gwt.material.design.addins.client">
+    
+    <ui:import field="br.eng.eliseu.gwt.material.client.place.NameTokens.RACHA_SOCIAL"/>
 
     <g:HTMLPanel>
-        <m:MaterialContainer >
+<!--                <a href="#{RACHA_SOCIAL}">teste</a> -->
             
             <ma:masonry.MaterialMasonry backgroundColor="BLACK" width="98%" flexAlignSelf="CENTER">
             
                <m:MaterialColumn grid="l6 s12 m6" padding="4" >
-                    <m:MaterialCard marginBottom="0" marginTop="0" backgroundColor="BLUE_DARKEN_1" height="200px" waves="DEFAULT" width="100%">
-                        <m:MaterialCardContent >
+                    <m:MaterialCard ui:field="rachaSocialCard" marginBottom="0" marginTop="0" backgroundColor="BLUE_DARKEN_1" height="200px" waves="DEFAULT" width="100%">
+                        <m:MaterialCardContent>
                             <m:MaterialRow marginBottom="30">
                                 <m:MaterialLabel text="Divide as Compras da Sociais" fontSize="1.2em" textColor="WHITE" grid="l9 s9 m9" truncate="true"/>
                                 <m:MaterialIcon iconType="SHOPPING_CART" textAlign="RIGHT" iconColor="WHITE" grid="l3 s3 m3" />
@@ -57,6 +59,5 @@
 	    		
 			 
 			 </ma:masonry.MaterialMasonry>
-        </m:MaterialContainer>
     </g:HTMLPanel>
 </ui:UiBinder>

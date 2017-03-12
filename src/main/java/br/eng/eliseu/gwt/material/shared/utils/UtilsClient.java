@@ -8,10 +8,10 @@ import java.math.RoundingMode;
 public class UtilsClient {
 
 	/**
-	 * Verifica de o valor do campo é um valor valido.
-	 * Um valor valido é quando ele tem o tamanho maior que 3 caracteres. 
+	 * Verifica de o valor do campo ï¿½ um valor valido.
+	 * Um valor valido ï¿½ quando ele tem o tamanho maior que 3 caracteres. 
 	 * @param text
-	 * @return
+	 * @return 
 	 */
 	public static boolean isValidFieldText(String text) {
 		if (text == null) {

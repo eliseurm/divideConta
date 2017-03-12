@@ -37,7 +37,7 @@ class RachaSocialView extends ViewWithUiHandlers<RachaSocialUiHandlers> implemen
 	 @UiField MaterialTextBox emailTBox;
 
 	 @UiField MaterialCheckBox gastouCBox;
-	 @UiField MaterialDoubleBox valorGastouTBox;
+	 @UiField MaterialDoubleBox valorGastouTBox; 
 
 	 @UiField MaterialCheckBox pagarCBox;
 	 @UiField MaterialDoubleBox adultosTBox;
@@ -231,7 +231,7 @@ class RachaSocialView extends ViewWithUiHandlers<RachaSocialUiHandlers> implemen
 					adultosTBox.clearErrorOrSuccess();
 				}
 				if (zeroCrianca <= 0){
-					criancasTBox.setError("Informe quantas Crianças");
+					criancasTBox.setError("Informe quantas Crianï¿½as");
 					temErro = true;
 				} else {
 					criancasTBox.clearErrorOrSuccess();
@@ -240,7 +240,7 @@ class RachaSocialView extends ViewWithUiHandlers<RachaSocialUiHandlers> implemen
 			}
 			
 			if (UtilsClient.isValidFieldDouble(criancasPercentualTBox.getValue()) <= 0){
-				criancasPercentualTBox.setError("Informe o percentual em relação ao adulto");
+				criancasPercentualTBox.setError("Informe o percentual em relaï¿½ï¿½o ao adulto");
 				temErro = true;
 			} else {
 				criancasPercentualTBox.clearErrorOrSuccess();
@@ -284,7 +284,7 @@ class RachaSocialView extends ViewWithUiHandlers<RachaSocialUiHandlers> implemen
 
 	 
 		public void criaColunas(){
-			 table.getTableTitle().setText("Passoas que dividirão a conta");
+			 table.getTableTitle().setText("Passoas que dividirï¿½o a conta");
 			 
 //			tabela.setKeyboardSelectionPolicy(KeyboardSelectionPolicy.ENABLED);
 //

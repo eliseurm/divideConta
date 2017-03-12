@@ -21,13 +21,10 @@ package br.eng.eliseu.gwt.material.client.place;
 
 public class NameTokens {
 
-	public static final String TESTE = "/teste";
-	public static final String RACHA_SOCIAL = "/racha-social";
-	public static final String HOME = "/home";
+	 public static final String TESTEHANDLES = "/TesteHandles";
 
-	public static String getTeste() {
-		return TESTE;
-	}
+	 public static final String RACHA_SOCIAL = "/racha-social";
+	 public static final String HOME = "/home";
 
 
 }
