@@ -38,7 +38,7 @@
 				</m:MaterialNavSection>
 			</m:MaterialNavBar>
 
-			<m:MaterialSideNav m:id="sidenav" type="PUSH" width="280" alwaysShowActivator="true" showOnAttach="true" closeOnClick="true">
+			<m:MaterialSideNav m:id="sidenav" type="PUSH" width="280" alwaysShowActivator="true" showOnAttach="false" closeOnClick="true">
 
 				<ma:sideprofile.MaterialSideProfile url="imagens/fundoAzul.png">
 					<m:MaterialRow ui:field="usuarioGeral" visible="false">

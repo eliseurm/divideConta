@@ -76,8 +76,11 @@ class RachaSocialView extends ViewWithUiHandlers<RachaSocialUiHandlers> implemen
 	protected void onAttach() {
 		super.onAttach();
 		if (!tabelaCriada) {
-			 criaColunas();
-			 tabelaCriada = true;
+			criaColunas();
+			table.setRedraw(true);
+			tabelaCriada = true;
+		} else {
+			table.refreshView();
 		}
 	}
 
@@ -284,7 +287,7 @@ class RachaSocialView extends ViewWithUiHandlers<RachaSocialUiHandlers> implemen
 
 	 
 		public void criaColunas(){
-			 table.getTableTitle().setText("Passoas que dividir�o a conta");
+			 table.getTableTitle().setText("Passoas que dividirão a conta");
 			 
 //			tabela.setKeyboardSelectionPolicy(KeyboardSelectionPolicy.ENABLED);
 //
