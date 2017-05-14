@@ -27,14 +27,14 @@ import br.eng.eliseu.gwt.material.client.application.testehandles.TesteHandlesMo
 
 public class ApplicationModule extends AbstractPresenterModule {
 
-    @Override
-    protected void configure() {
+	@Override
+	protected void configure() {
 		install(new TesteHandlesModule());
 		install(new HomeModule());
-      install(new RachaSocialModule());
-                    
-        bindPresenter(ApplicationPresenter.class, ApplicationPresenter.MyView.class, ApplicationView.class, ApplicationPresenter.MyProxy.class);
-	        
-    }
-    
+		install(new RachaSocialModule());
+
+		bindPresenter(ApplicationPresenter.class, ApplicationPresenter.MyView.class, ApplicationView.class, ApplicationPresenter.MyProxy.class);
+
+	}
+
 }

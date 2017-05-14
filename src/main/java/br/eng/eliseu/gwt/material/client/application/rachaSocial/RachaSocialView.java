@@ -55,34 +55,19 @@ class RachaSocialView extends ViewWithUiHandlers<RachaSocialUiHandlers> implemen
 		 
 		  initWidget(uiBinder.createAndBindUi(this));
 		  
-		  // winRachaSocial.addOpenHandler(new OpenHandler<Boolean>() {
-		  // @Override
-		  // public void onOpen(OpenEvent<Boolean> event) {
-		  // MaterialToast.fireToast("Opened : " + winRachaSocial.getTitle());
-		  // }
-		  // });
-		  //
-//		  modal.addCloseHandler(new CloseHandler<Boolean>() {
-//		   @Override
-//		   public void onClose(CloseEvent<Boolean> event) {
-//		   MaterialToast.fireToast("Closed : " + modal.getTitle());
-//		   }
-//		   });
+		  table.setLoadedCallback(() -> {
+			  criaColunas();
 
+		  });
+	 
 	 }
 
 
-	 @Override
-	protected void onAttach() {
-		super.onAttach();
-		if (!tabelaCriada) {
-			criaColunas();
-			table.setRedraw(true);
-			tabelaCriada = true;
-		} else {
-			table.refreshView();
-		}
-	}
+//	 @Override
+//	protected void onAttach() {
+//		super.onAttach();
+//
+//	}
 
 
 

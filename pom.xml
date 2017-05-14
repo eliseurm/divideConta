@@ -16,11 +16,11 @@
         <app.id>DivideConta</app.id>
         <app.version>1</app.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <gwt.version>2.8.0-rc3</gwt.version>
+        <gwt.version>2.8.0</gwt.version>
         <gwtp.version>1.6</gwtp.version>
         <gin.version>2.1.2</gin.version>
-        <gwt-material.version>2.0-rc4</gwt-material.version>
-        <gwt-material-table.version>1.0-rc4</gwt-material-table.version>
+        <gwt-material.version>2.0-rc5</gwt-material.version>
+        <gwt-material-table.version>1.0-rc5</gwt-material-table.version>
         <gwt.style>OBF</gwt.style>
 
         <!-- maven -->
