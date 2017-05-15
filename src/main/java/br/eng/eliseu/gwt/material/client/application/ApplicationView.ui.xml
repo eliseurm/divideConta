@@ -72,12 +72,14 @@
 
 
 		<m:MaterialFooter>
-			<m:MaterialProgress type="INDETERMINATE" visible="false" />
-			<m:MaterialLabel textColor="WHITE" text="Este app foi desenvolvido com fins pedagogicos, e pode ser usado livremente." />
-
-			<m:MaterialFooterCopyright addStyleNames="footer-copyright">
-				<m:MaterialLabel text="© 2016 Eliseu Rodrigues Menezes" />
-			</m:MaterialFooterCopyright>
+			<m:MaterialPanel textAlign="CENTER">
+				<m:MaterialProgress type="INDETERMINATE" visible="false" />
+				<m:MaterialLabel textColor="WHITE" text="Este app foi desenvolvido com fins pedagogicos, e pode ser usado livremente." />
+	
+				<m:MaterialFooterCopyright addStyleNames="footer-copyright">
+					<m:MaterialLabel text="© 2016 Eliseu Rodrigues Menezes" />
+				</m:MaterialFooterCopyright>
+			</m:MaterialPanel>
 		</m:MaterialFooter>
 
 	</m:MaterialPanel>
